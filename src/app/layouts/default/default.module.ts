@@ -19,26 +19,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-import { ItemListComponent } from 'src/app/components/articulos/item-list.component';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { NotFoundComponent } from '../../components/error/not-found.component';
 import { ServerErrorComponent } from '../../components/error/server-error.component';
-import { PersonaListComponent } from '../../components/persona/persona-list.component';
-import { PersonaEditComponent } from '../../components/persona/persona-edit.component';
-import { PersonaAddComponent } from '../../components/persona/persona-add.component';
-import { CategoriaListComponent } from '../../components/categoria/categoria-list.component';
-import { CategoriaEditComponent } from '../../components/categoria/categoria-edit.component';
-import { CategoriaAddComponent } from '../../components/categoria/categoria-add.component';
-import { FacturaListComponent } from '../../components/factura/factura-list.component';
-import { FacturaAddComponent } from '../../components/Factura/Factura-add.component';
-import { FacturaEditComponent } from '../../components/Factura/factura-edit.component';
-import { DetalleVentaEditComponent } from 'src/app/components/detalleventa/detalle-venta-edit.component';
-import { DetalleVentaAddComponent } from 'src/app/components/detalleventa/detalle-venta-add.component';
-import { ItemAddComponent } from 'src/app/components/articulos/item-add.component';
-import { ItemEditComponent } from 'src/app/components/articulos/item-edit.component';
+import { AsignaturaListComponent } from '../../components/asignatura/asignatura-list.component';
+import { AsignaturaEditComponent } from '../../components/asignatura/asignatura-edit.component';
+import { AsignaturaAddComponent } from '../../components/asignatura/asignatura-add.component';
+import { LibroAddComponent } from '../../components/libro/libro-add.component';
+import { LibroEditComponent } from '../../components/libro/libro-edit.component';
+import { LibroListComponent } from '../../components/libro/libro-list.component';
 
 @NgModule({
   declarations: [
@@ -47,24 +37,16 @@ import { ItemEditComponent } from 'src/app/components/articulos/item-edit.compon
     PostsComponent,
     LoginComponent,
 
-    ItemAddComponent,
-    ItemEditComponent,
-    ItemListComponent,
 
-    CategoriaListComponent,
-    CategoriaAddComponent,
-    CategoriaEditComponent,
+    AsignaturaListComponent,
+    AsignaturaAddComponent,
+    AsignaturaEditComponent,
 
-    PersonaListComponent,
-    PersonaAddComponent,
-    PersonaEditComponent,
+    LibroListComponent,
+    LibroAddComponent,
+    LibroEditComponent,
 
-    FacturaListComponent,
-    FacturaAddComponent,
-    FacturaEditComponent,
 
-    DetalleVentaAddComponent,
-    DetalleVentaEditComponent,
 
     DialogoBorrarComponent,
 
@@ -93,10 +75,10 @@ import { ItemEditComponent } from 'src/app/components/articulos/item-edit.compon
   exports: [MatInputModule],
   entryComponents: [
     DialogoBorrarComponent, 
-    ItemAddComponent, ItemEditComponent,
-    PersonaAddComponent, PersonaEditComponent,
-    CategoriaAddComponent, CategoriaEditComponent,
-    DetalleVentaAddComponent, DetalleVentaEditComponent
+    AsignaturaAddComponent,
+    AsignaturaEditComponent,
+    LibroAddComponent,
+    LibroEditComponent,
   ],
   providers: [
     DashboardService    

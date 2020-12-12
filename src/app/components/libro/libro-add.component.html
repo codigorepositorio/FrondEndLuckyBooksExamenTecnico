@@ -1,0 +1,59 @@
+<!-- <div class="mat-elevation-z8 basic-container"> -->
+<mat-toolbar>
+    <span>Ingreso de Libros </span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button tabIndex="-1" (click)="cancelar()">
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-toolbar>
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="cargando">
+    <mat-progress-spinner class="example-margin" color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+</div>
+<form [formGroup]="formAgregar" class="normal-form" autocomplete="off">
+    <mat-grid-list cols="2" rowHeight="150px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                  <mat-form-field>
+                    <input matInput placeholder="Descripcion" formControlName="descripcion">
+                    <mat-hint align="end">No más de 60 caracteres.</mat-hint>
+                    <mat-error *ngIf="hasError('descripcion', 'required')">Ingrese el descripcion</mat-error>
+                    <mat-error *ngIf="hasError('descripcion', 'minlength')">Minimo 5 caracteres</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select [formControlName]="'asignatura'" placeholder="Asignatura">
+                        <mat-option>None</mat-option>
+                        <ng-container>
+                            <mat-option *ngFor="let asignaturas of listadoAsignatura" [value]="asignaturas.codigoAsignatura">
+                                {{asignaturas.descripcion}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('asignatura', 'required')">* Seleccione Asignatura. </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Stock" type="number" formControlName="stock">
+                    <mat-error *ngIf="hasError('stock', 'required')">Ingrese Stock</mat-error>
+                    <mat-error *ngIf="hasError('stock', 'min')">Minimo 1 </mat-error>
+                    <mat-error *ngIf="hasError('stock', 'max')">Maximo 500 </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-checkbox formControlName="condicion" (change)="checkChanged($event)">Activo
+                </mat-checkbox>
+
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="button" [disabled]="!formAgregar.valid"
+                        (click)="AgregarLibro()">Submit</button>
+                    <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</form>
