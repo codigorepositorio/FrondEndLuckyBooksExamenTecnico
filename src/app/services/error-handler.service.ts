@@ -10,7 +10,6 @@ export class ErrorHandlerService {
   public errorMessage: string = '';
   constructor(private router: Router) { }
 
-
   public handleError = (error: HttpErrorResponse) => {
     if (error.status === 0) {
       this.handle500Error(error);
